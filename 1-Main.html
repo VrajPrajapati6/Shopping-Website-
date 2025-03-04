@@ -1,0 +1,166 @@
+<html>
+    <head>
+        <title>Practical-5</title>
+        <script>
+            function openRegistration() {
+                window.location.href = "2-registration.html"; 
+            }
+            </script>
+        <style>
+          body{
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+          }
+          .nav{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 10px 20px;
+            color: white;
+          }
+          .logo h1{
+            margin: 0;
+            font-size: 24px;
+          }
+          .nava{
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+          } 
+          .nava li{
+            margin-left: 20px;
+          } 
+          .nava a{
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+          }
+          .midd{
+            background-image: url('hero-bg.jpg'); 
+            background-size: cover;
+            background-position: center;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+          }
+          
+          .midd h2{
+            font-size: 48px;
+            margin: 0;
+            color:black;
+          }
+          
+          .midd-content p{
+            font-size: 20px;
+            margin: 10px 0 20px;
+            color:black;
+          }
+          
+          .btn{
+            background-color: #ff6347;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+          }
+          
+          .btn:hover{
+            background-color: #ff4500;
+          }
+          
+          .categories{
+            padding: 40px 20px;
+            text-align: center;
+          }
+          .categories h2{
+            font-size: 36px;
+            margin-bottom: 20px;
+          } 
+          .category-list{
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+          } 
+          .category-item{
+            width: 30%;
+            margin-bottom: 20px;
+            text-align: center;
+          }
+          .category-item img{
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+          }
+          
+          .category-item h3{
+            font-size: 24px;
+            margin: 10px 0;
+          }
+          
+          .bottom{
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+          }
+          
+          .bottom p{
+            margin: 0;
+          }
+        </style>
+    </head>
+    <body>
+        <div class="nav">
+            <div class="logo">
+              <h1>QuickPick</h1>
+            </div>
+            <ul class="nava">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Categories</a></li>
+              <li><a href="#">Deals</a></li>
+              <li><a href="#">Cart</a></li>
+              <li><a href="#">Login</a></li>
+            </ul>
+        </div>
+        
+          <div class="midd">
+            <div class="midd-content">
+              <h2>Welcome to QuickPick</h2>
+              <p>Your one-stop destination for all your shopping needs!</p>
+              <button class="btn" onclick="openRegistration()">Register Now</button>
+            </div>
+        </div>
+        
+          <div class="categories">
+            <h2>Shop by Category</h2>
+            <div class="category-list">
+              <div class="category-item">
+                <img src="https://tomindia.s3.ap-south-1.amazonaws.com/prod/uploads/banner/HMyhRA7ThfTBHHwIclJX_Apple-M4-Macbook-Pro_TomorrowsIndia.jpg" alt="Electronics">
+                <h3>Electronics</h3>
+              </div>
+              <div class="category-item">
+                <img src="https://cdn.luxe.digital/media/20230927084701/best-jordans-of-all-time-ranking-list-luxe-digital-1200x600.jpg" alt="Clothing">
+                <h3>Clothing</h3>
+              </div>
+              <div class="category-item">
+                <img src="https://jimmyweb.net/wp-content/uploads/2015/01/furniture11.jpg" alt="Books">
+                <h3>Furniture</h3>
+              </div>
+            </div>
+        </div>
+        
+          <div class="bottom">
+            <p>&copy; 2025 QuickPick. All rights reserved.</p>
+          </div>
+    </body>
+</html>

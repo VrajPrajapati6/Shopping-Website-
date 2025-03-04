@@ -1,0 +1,293 @@
+<html>
+<head>
+    <title>Order Placement - QuickPick</title>
+    <script>
+        // Wait for the DOM to load before running the script
+        document.addEventListener('DOMContentLoaded', () => {
+            // Retrieve product details from localStorage (without JSON)
+            const productName = localStorage.getItem("productName");
+            const productPrice = localStorage.getItem("productPrice");
+            const productImage = localStorage.getItem("productImage");
+
+            // Display product details
+            if (productName && productPrice && productImage) {
+                document.getElementById('productName').textContent = productName;
+                document.getElementById('productImage').src = productImage;
+                document.getElementById('finalPrice').textContent = productPrice;
+            }
+
+            // Function to format date as "Day, Month Date, Year"
+            function formatDate(date) {
+                const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                return date.toLocaleDateString('en-US', options);
+            }
+
+            // Get today's date
+            const today = new Date();
+            document.getElementById('todayDate').textContent = formatDate(today);
+
+            // Calculate delivery date (6 days from today)
+            const deliveryDate = new Date(today);
+            deliveryDate.setDate(today.getDate() + 6);
+            document.getElementById('deliveryDate').textContent = formatDate(deliveryDate);
+
+            // Quantity and Final Price Elements
+            const quantityInput = document.getElementById('quantity');
+            const finalPriceElement = document.getElementById('finalPrice');
+            const quantityError = document.getElementById('quantityError');
+
+            // Address and Payment Method Elements
+            const addressInput = document.getElementById('address');
+            const addressError = document.getElementById('addressError');
+            const paymentInputs = document.querySelectorAll('input[name="payment"]');
+            const paymentError = document.getElementById('paymentError');
+
+            // Function to validate quantity
+            function validateQuantity() {
+                const quantity = parseInt(quantityInput.value.trim());
+
+                // Check if quantity is a valid number
+                if (isNaN(quantity)) {
+                    quantityError.textContent = "Quantity must be a number.";
+                    return false;
+                }
+                if (quantity <= 0) {
+                    quantityError.textContent = "Quantity must be a positive number.";
+                    return false;
+                }
+
+                // Check if total price exceeds ₹10 lakh
+                const totalPrice = productPrice * quantity;
+                if (totalPrice > 1000000) {
+                    quantityError.textContent = "Total price cannot exceed ₹10 lakh.";
+                    return false;
+                }
+
+                // Clear error if validation passes
+                quantityError.textContent = "";
+                return true;
+            }
+
+            // Function to validate address
+            function validateAddress() {
+                const address = addressInput.value.trim();
+
+                if (address === "") {
+                    addressError.textContent = "Delivery address is required.";
+                    return false;
+                }
+
+                // Clear error if validation passes
+                addressError.textContent = "";
+                return true;
+            }
+
+            // Function to validate payment method
+            function validatePayment() {
+                let isPaymentSelected = false;
+                paymentInputs.forEach(input => {
+                    if (input.checked) {
+                        isPaymentSelected = true;
+                    }
+                });
+
+                if (!isPaymentSelected) {
+                    paymentError.textContent = "Please select a payment method.";
+                    return false;
+                }
+
+                // Clear error if validation passes
+                paymentError.textContent = "";
+                return true;
+            }
+
+            // Validate form on submission
+            document.getElementById('orderForm').addEventListener('submit', (event) => {
+                event.preventDefault(); // Prevent form submission
+
+                // Run all validations
+                const isQuantityValid = validateQuantity();
+                const isAddressValid = validateAddress();
+                const isPaymentValid = validatePayment();
+
+                // If all validations pass
+                if (isQuantityValid && isAddressValid && isPaymentValid) {
+                    // Show success popup
+                    alert("Your order has been placed successfully!");
+
+                    // Redirect to 3-placeorders.html
+                    window.location.href = "3-placeorders.html";
+                }
+            });
+
+            // Update final price and validate quantity on input
+            quantityInput.addEventListener('input', () => {
+                const quantity = parseInt(quantityInput.value.trim());
+
+                if (!isNaN(quantity)) {
+                    const totalPrice = productPrice * quantity;
+                    finalPriceElement.textContent = totalPrice.toLocaleString('en-IN');
+                } else {
+                    finalPriceElement.textContent = "0";
+                }
+
+                validateQuantity();
+            });
+        });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e0e0e0;
+        }
+        .header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+        }
+        .main {
+            flex: 1;
+            padding: 20px;
+        }
+        .order-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .order-form h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2em;
+            color: #333;
+        }
+        .order-form .product-image {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .order-form .product-image img {
+            max-width: 150px; 
+            height: auto;
+            border-radius: 8px;
+        }
+        .order-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+        .order-form input[type="text"],
+        .order-form textarea,
+        .order-form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .order-form .payment-method {
+            margin-bottom: 20px;
+        }
+        .order-form .payment-method label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .order-form .payment-method input[type="radio"] {
+            margin-right: 10px;
+        }
+        .order-form .final-price {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .order-form .date-info {
+            font-size: 1em;
+            margin-bottom: 20px;
+            color: #555;
+        }
+        .order-form button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .order-form button:hover {
+            background-color: #218838;
+        }
+        .order-form .error {
+            color: red;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        .footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        QuickPick
+    </div>
+
+    <div class="main">
+        <div class="order-form">
+            <h1>Place Your Order</h1>
+
+            <div class="product-image">
+                <img id="productImage" src="" alt="Product Image">
+            </div>
+
+            <form id="orderForm">
+                <h2 id="productName"></h2>
+
+                <label for="quantity">Quantity:</label>
+                <input type="text" id="quantity" name="quantity" placeholder="Enter quantity" required>
+                <div id="quantityError" class="error"></div>
+
+                <label for="address">Delivery Address:</label>
+                <textarea id="address" name="address" rows="4" required></textarea>
+                <div id="addressError" class="error"></div>
+
+                <div class="payment-method">
+                    <label>Payment Method:</label>
+                    <label><input type="radio" name="payment" value="cod" required> Cash on Delivery (COD)</label>
+                    <label><input type="radio" name="payment" value="upi" required> UPI</label>
+                </div>
+                <div id="paymentError" class="error"></div>
+
+                <div class="final-price">
+                    Final Price: ₹<span id="finalPrice">0</span>
+                </div>
+
+                <div class="date-info">
+                    <p>Today's Date: <span id="todayDate"></span></p>
+                    <p>Expected Delivery Date: <span id="deliveryDate"></span></p>
+                </div>
+
+                <button type="submit">Place Order</button>
+            </form>
+        </div>
+    </div>
+    <div class="footer">
+        &copy; 2025 QuickPick. &nbsp;All Rights Reserved.
+    </div>
+</body>
+</html>

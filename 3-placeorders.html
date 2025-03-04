@@ -1,0 +1,164 @@
+<html>
+<head>
+    <title>PlaceOrders</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .header{
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header .logo{
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .header nav ul{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        
+        .header nav ul li{
+            margin-left: 20px;
+        }
+        
+        .header nav ul li a{
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .header nav ul li a:hover{
+            text-decoration: underline;
+        }
+        .main {
+            flex: 1; 
+            padding: 20px;
+        }
+        
+        .main h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .items-container{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px; 
+        }
+        .item-link{
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .item {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .item h2 {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+        .item p {
+            font-size: 14px;
+            color: #555;
+        }
+        .footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: auto; 
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">QuickPick</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Categories</a></li>
+                <li><a href="#">Cart</a></li>
+                <li><a href="#">Profile</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="main">
+        <h1>Welcome Back!</h1>
+        <div class="items-container">
+            <a href="item-1mackbook.html" class="item-link">
+                <div class="item">
+                    <img src="https://tomindia.s3.ap-south-1.amazonaws.com/prod/uploads/banner/HMyhRA7ThfTBHHwIclJX_Apple-M4-Macbook-Pro_TomorrowsIndia.jpg" alt="mackbook m4 pro">
+                    <h2>₹2,39,990 - Mackbook Pro</h2>
+                    <p>14-inch,Space Black & Silver, 273GB/s and 527GB/s memory bandwidth.</p>
+                </div>
+            </a>
+            <a href="item-2jordan.html" class="item-link">
+                <div class="item">
+                    <img src="https://cdn.luxe.digital/media/20230927084701/best-jordans-of-all-time-ranking-list-luxe-digital-1200x600.jpg" alt="Air Jordan">
+                    <h2>₹22,499 - Air Jordan 1 Mid</h2>
+                    <p>Colour Shown: Black/Summit White/Varsity Red
+                        Style: DQ8426-067</p>
+                </div>
+            </a>
+            <a href="item-3keyboard.html" class="item-link">
+                <div class="item">
+                    <img src="https://media.cnn.com/api/v1/images/stellar/prod/keychron-k3v2.jpg?q=w_1110,c_fill" alt="keyboard">
+                    <h2>₹499 - Portronics Ki-Pad 3</h2>
+                    <p>USB Wired Keyboard with Large Keycaps, Noise-Free Typing.</p>
+                </div>
+            </a>
+            <a href="item-4chair.html" class="item-link">
+                <div class="item">
+                    <img src="https://m.media-amazon.com/images/I/51TVFcB1c1L._SX679_.jpg" alt="chair">
+                    <h2>₹13,499 <br> <br> DANEWOOD Wooden</h2>
+                    <p>Chair Set of 2 | Study Chair | Chair for Home & Office | Honey Finish with Blue Cushions </p>
+                </div>
+            </a>
+            <a href="item-5ps5co.html" class="item-link">
+                <div class="item">
+                    <img src="https://m.media-amazon.com/images/I/61oJnJnvFzL._AC_UY327_FMwebp_QL65_.jpg" alt="Item 5" >
+                    <h2>₹2,399 - PS5 Storage bag</h2>
+                    <p>NexiGo Storage Bag for PS5, Travel Bag for PS5, Carrying Case Briefcase Type for PS5.</p>
+                </div>
+            </a>
+            <a href="item-6sofa.html" class="item-link">
+                <div class="item">
+                    <img src="https://m.media-amazon.com/images/I/91Ur8kBz4ML.jpg" alt="sofa">
+                    <h2>₹10,999 <br> L Shape Sectional Sofa</h2>
+                    <p>3 Piece Set, L Shaped Sleeper Couch Sofa, Large Modern.</p>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="footer">
+        <p>&copy; 2025 QuickPick. All rights reserved.</p>
+    </div>
+</body>
+</html>

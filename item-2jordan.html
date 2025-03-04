@@ -1,0 +1,127 @@
+<html>
+<head>
+    <title>Jordan Details Page</title>
+    <script>
+        function buyNow() {
+            localStorage.setItem("productName", "Air Jordan 1 High OG Black Toe");
+            localStorage.setItem("productPrice", "22499");
+            localStorage.setItem("productImage", "https://static.nike.com/a/images/w_1280,q_auto,f_auto/00e4726a-b902-437d-be93-95bd87ce8aec/air-jordan-1-high-og-black-toe-dz5485-106-release-date.jpg");
+            window.location.href = "5-order.html";
+        }
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e0e0e0;
+        }
+        .header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+        }
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .product-image {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .product-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .product-details {
+            flex: 1;
+            padding: 20px;
+        }
+        .product-details h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .product-details p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #555;
+        }
+        .product-details ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .product-details ul li {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            color: #555;
+        }
+        .buy-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            color: #fff;
+            background-color: #28a745;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+        }
+        .buy-button:hover {
+            background-color: #218838;
+        }
+        .footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        QuickPick
+    </div>
+
+    <div class="container">
+        <div class="product-image">
+            <img src="https://static.nike.com/a/images/w_1280,q_auto,f_auto/00e4726a-b902-437d-be93-95bd87ce8aec/air-jordan-1-high-og-black-toe-dz5485-106-release-date.jpg" alt="Product Image">
+        </div>
+        <div class="product-details">
+            <h1>Air Jordan 1 High OG<br>
+                Black Toe</h1>
+            <p>Marketed by:<br>
+                Nike Global Trading B.V. Singapore Branch
+                <br>
+                30 Pasir Panjang Road, #10-31/32, Mapletree Business City, 117440, Singapore.</p>
+                <br>
+            <ul>
+                <li><strong>Brand:</strong> Nike</li>
+                <li><strong>Color:</strong> Red combo with white & Black</li>
+                <li><strong>Size:</strong> UK 8 - UK 11</li>
+                <li><strong>SKU:</strong> DZ5485-106</li>
+                <li><strong>Country of Origin:</strong> Singapore</li>
+                <li><strong>Price:</strong> ₹22,499 <font color="red"> (27% off)</font></li>
+            </ul>
+            <button class="buy-button" onclick="buyNow()">Buy Now</button>
+        </div>
+    </div>
+    <div class="footer">
+        &copy; 2025 QuickPick. &nbsp;All Rights Reserved.
+    </div>
+</body>
+</html>

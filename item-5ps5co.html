@@ -1,0 +1,123 @@
+<html>
+<head>
+    <title>PS5 Details Page</title>
+    <script>
+        function buyNow() {
+            localStorage.setItem("productName", "PS5 Storage Bag");
+            localStorage.setItem("productPrice", "2399");
+            localStorage.setItem("productImage", "https://m.media-amazon.com/images/I/61oJnJnvFzL._AC_UY327_FMwebp_QL65_.jpg");
+            window.location.href = "5-order.html";
+        }
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e0e0e0;
+        }
+        .header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+        }
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .product-image {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .product-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .product-details {
+            flex: 1;
+            padding: 20px;
+        }
+        .product-details h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .product-details p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #555;
+        }
+        .product-details ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .product-details ul li {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            color: #555;
+        }
+        .buy-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            color: #fff;
+            background-color: #28a745;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+        }
+        .buy-button:hover {
+            background-color: #218838;
+        }
+        .footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        QuickPick
+    </div>
+
+    <div class="container">
+        <div class="product-image">
+            <img src="https://m.media-amazon.com/images/I/61oX6k6wIjL._SX522_.jpg" alt="Product Image">
+        </div>
+        <div class="product-details">
+            <h1>PS5 Storage Bag</h1>
+            <p>NexiGo Storage Bag for PS5, Travel Bag for PS5, Carrying Case Briefcase Type for PS5,Waterproof Shoulder Bag Compatible PS 5 with Both Side Storage Compartment Accessories (Blue).</p>
+            <ul>
+                <li><strong>Brand:</strong> NexiGo</li>
+                <li><strong>Color:</strong> Blue</li>
+                <li><strong>Material:</strong> Cotton</li>
+                <li><strong>WaterProof:</strong> Yes</li>
+                <li><strong>Package Dimensions:</strong> 42 x 27 x 21 cm</li>
+                <li><strong>Item Weight:</strong> 1 kg 300 g</li>
+                <li><strong>Price:</strong> ₹2,399 <font color="red"> (52% off)</font></li>
+            </ul>
+            <button class="buy-button" onclick="buyNow()">Buy Now</button>
+        </div>
+    </div>
+    <div class="footer">
+        &copy; 2025 QuickPick. &nbsp;All Rights Reserved.
+    </div>
+</body>
+</html>
